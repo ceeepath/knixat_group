@@ -15,13 +15,14 @@ This report outlines the comparison of various cloud services offered by Azure, 
 | Services         | Azure | Amazon Web Services        | Google Cloud Platform   | Alibaba Cloud |
 |-----------------------|-----------------------|--------------------------|-----------------------|-----------------------|
 | **Virtual Machines** | Virtual Machines (VMs)|  EC2 Instances            | Compute Engine    | Elastic Compute Service |
-| **Container Services** |   |   |   |   |
-| **Serverless Computing** |   |   |   |   |
-| **Object Storage** |   |   |   |   |
-| **File Storage** |   |   |   |   |
-| **Database Storage** |   |   |   |   |
-| **Virtual Network** |   |   |   |   |
-| **DNS Service** |   |   |   |   |
+
+| **Container Services** |   |Amazon Elastic Kubernetes Service (EKS),   |   |   |
+| **Serverless Computing** |   |AWS Lambda   |   |   |
+| **Object Storage** |   |AWS Simple Storage Service (S3)   |   |   |
+| **File Storage** |   |Amazon Elastic File System (EFS)   |   |   |
+| **Database Storage** |   |Amazon DynamoDB   |   |   |
+| **Virtual Network** |   |Amazon Virtual Private Cloud (VPC)   |   |   |
+| **DNS Service** |   |Amazon Route 53   |   |   |
 
 
 ## 2) Create an Azure storage account in your group Azure resource group.
