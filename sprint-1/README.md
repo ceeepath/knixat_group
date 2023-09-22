@@ -12,22 +12,23 @@
 
 This report outlines the comparison of various cloud services offered by Azure, AWS (Amazon Web Services), Google Cloud and Alibaba. The comparison table below is organized based on some of the popular services and the nomenclature of the respective cloud provider.
 
-| Services         | Azure | Amazon Web Services        | Google Cloud Platform   | Alibaba Cloud |
-|-----------------------|-----------------------|--------------------------|-----------------------|-----------------------|
-| **Virtual Machines** | Virtual Machines (VMs)|  EC2 Instances            | Compute Engine    | Elastic Compute Service |
 
-| **Container Services** |   |Amazon Elastic Kubernetes Service (EKS),   |   |   |
-| **Serverless Computing** |   |AWS Lambda   |   |   |
-| **Object Storage** |   |AWS Simple Storage Service (S3)   |   |   |
-| **File Storage** |   |Amazon Elastic File System (EFS)   |   |   |
-| **Database Storage** |   |Amazon DynamoDB   |   |   |
-| **Virtual Network** |   |Amazon Virtual Private Cloud (VPC)   |   |   |
-| **DNS Service** |   |Amazon Route 53   |   |   |
+| Services              | Azure         | Amazon Web Services        | Google Cloud Platform   | Alibaba Cloud |
+|-----------------------|-----------------------|--------------------------|-----------------------|-----------|
+| **Virtual Machines** | Virtual Machines (VMs)|  EC2 Instances  | Compute Engine    | Elastic Compute Service |
+| **Container Services** | Azure Kubernetes Service (AKS) |   |   |   |
+| **Serverless Computing** | Azure Functions  |   |   |   |
+| **Object Storage** | Azure Blob Storage  |   |   |   |
+| **File Storage** | Azure Files  |   |   |   |
+| **Database Storage** | Azure Table Storage  |   |   |   |
+| **Virtual Network** | Azure Virtual Network  |   |   |   |
+| **DNS Service** | Azure DNS  |   |   |   |
+
 
 
 ## 2) Create an Azure storage account in your group Azure resource group.
 
-Firstly, the name we choose for our group is **`knixat-group2`** and we have gone ahead to create a Resource Group using the group name. Please see the attached screenshot below showing the **`knixat-group2`** resource group. In a bid to create a Storage account in the **`knixat-group2`** resource group, the following considerations were taken into account.
+Firstly, the name we choose for our group is **`knixat-group2`** and we have gone ahead to create a Resource Group using the group name. Please see the attached screenshot below showing the __`knixat-group2`__ resource group. In a bid to create a Storage account in the **`knixat-group2`** resource group, the following considerations were taken into account.
 
 
 
@@ -35,8 +36,8 @@ Firstly, the name we choose for our group is **`knixat-group2`** and we have gon
     <img src="../.assets/logo-03.png" width="50x" />
 </p>
 
-**Contact Us:**  
-Email: [admissions@knixat.com](mailto:admissions@email.com)  
+**Contact Us:**
+Email: [admissions@knixat.com](mailto:admissions@email.com)
 Website: [www.knixat.com](https://www.knixat.com)
 
 &copy; 2023 Knixat. All Rights Reserved.
