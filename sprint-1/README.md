@@ -8,9 +8,27 @@
 
 # Knixat Cloud DevOps - Sprint 1
 
-This is the README.md for sprint 1. Use the same format for future sprints.
+## 1) Compare cloud service providers and present findings.
 
----
+This report outlines the comparison of various cloud services offered by Azure, AWS (Amazon Web Services), Google Cloud and Alibaba. The comparison table below is organized based on some of the popular services and the nomenclature of the respective cloud provider.
+
+| Services         | Azure | Amazon Web Services        | Google Cloud Platform   | Alibaba Cloud |
+|-----------------------|-----------------------|--------------------------|-----------------------|-----------------------|
+| **Virtual Machines** | Virtual Machines (VMs)|  EC2 Instances            | Compute Engine    | Elastic Compute Service |
+| **Container Services** |   |   |   |   |
+| **Serverless Computing** |   |   |   |   |
+| **Object Storage** |   |   |   |   |
+| **File Storage** |   |   |   |   |
+| **Database Storage** |   |   |   |   |
+| **Virtual Network** |   |   |   |   |
+| **DNS Service** |   |   |   |   |
+
+
+## 2) Create an Azure storage account in your group Azure resource group.
+
+Firstly, the name we choose for our group is **`knixat-group2`** and we have gone ahead to create a Resource Group using the group name. Please see the attached screenshot below showing the **`knixat-group2`** resource group. In a bid to create a Storage account in the **`knixat-group2`** resource group, the following considerations were taken into account.
+
+
 
 <p align="left">
     <img src="../.assets/logo-03.png" width="50x" />
