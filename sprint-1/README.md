@@ -16,13 +16,13 @@ This report outlines the comparison of various cloud services offered by Azure, 
 | Services              | Azure         | Amazon Web Services        | Google Cloud Platform   | Alibaba Cloud |
 |-----------------------|-----------------------|--------------------------|-----------------------|-----------|
 | **Virtual Machines** | Virtual Machines (VMs)|  EC2 Instances  | Compute Engine    | Elastic Compute Service |
-| **Container Services** | Azure Kubernetes Service (AKS) |   |   |   |
-| **Serverless Computing** | Azure Functions  |   |   |   |
-| **Object Storage** | Azure Blob Storage  |   |   |   |
-| **File Storage** | Azure Files  |   |   |   |
-| **Database Storage** | Azure Table Storage  |   |   |   |
-| **Virtual Network** | Azure Virtual Network  |   |   |   |
-| **DNS Service** | Azure DNS  |   |   |   |
+| **Container Services** | Azure Kubernetes Service (AKS) | Amazon Elastic Kubernetes Service (EKS)   |   |   |
+| **Serverless Computing** | Azure Functions  | AWS Lambda   |   |   |
+| **Object Storage** | Azure Blob Storage  | AWS Simple Storage Service (S3)   |   |   |
+| **File Storage** | Azure Files  |Amazon Elastic File System (EFS)   |   |   |
+| **Database Storage** | Azure Table Storage  | Amazon DynamoDB   |   |   |
+| **Virtual Network** | Azure Virtual Network  | Amazon Virtual Private Cloud (VPC)   |   |   |
+| **DNS Service** | Azure DNS  | Amazon Route 53   |   |   |
 
 
 
