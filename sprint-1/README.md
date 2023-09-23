@@ -28,8 +28,25 @@ This report outlines the comparison of various cloud services offered by Azure, 
 
 ## 2) Create an Azure storage account in your group Azure resource group.
 
-Firstly, the name we choose for our group is **`knixat-group2`** and we have gone ahead to create a Resource Group using the group name. Please see the attached screenshot below showing the __`knixat-group2`__ resource group. In a bid to create a Storage account in the **`knixat-group2`** resource group, the following considerations were taken into account.
+Firstly, the name we chose for our group is **`knixat-group2`** and we have gone ahead to create a Resource Group using the group name. Please see the attached screenshot below showing the **`knixat-group2-rg`** resource group. 
 
+![Image of Storage Account](image/Storage_Account.png)
+
+In a bid to create a Storage account in the **`knixat-group2-rg`** resource group, the following considerations were taken into account.
+
+We came up with an hypothetical project plan to host a web application that delivers images and videos to users, we needed a secure and low-latency storage solution. Our selection criteria for the Azure Storage Account were as follows:
+
+- **Storage Category**: We opted for the "Standard" category since we decided to use Blob Storage over a Virtual Machine.
+
+- **Region Selection**: We chose the "EastUS2" region because it aligns with our target customer base and the location of our test server in the United States. This choice minimizes latency and cost considerations.
+
+- **Redundancy**: For our testing phase, we selected "Local Redundant Storage" as it offers a cost-effective solution with acceptable risk for data loss.
+
+- **Networking**: To enhance security, we enabled public access only from specific Virtual Networks and IP addresses. This ensures that the storage server is accessible only to our application within the same Virtual Network, rather than directly from the internet.
+
+- **Data Protection**: We implemented "soft deletion" and configured a retention period of 7 days for deleted files to safeguard our data.
+
+*By adhering to these selection criteria, we have ensured a robust and cost-effective storage solution that meets the requirements of our web application.*
 
 
 <p align="left">
