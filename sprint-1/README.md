@@ -16,13 +16,13 @@ This report outlines the comparison of various cloud services offered by Azure, 
 | Services              | Azure         | Amazon Web Services        | Google Cloud Platform   | Alibaba Cloud |
 |-----------------------|-----------------------|--------------------------|-----------------------|-----------|
 | **Virtual Machines** | Virtual Machines (VMs)|  EC2 Instances  | Compute Engine    | Elastic Compute Service |
-| **Container Services** | Azure Kubernetes Service (AKS) | Amazon Elastic Kubernetes Service (EKS)   | Google Kubernets Engine  |   |
-| **Serverless Computing** | Azure Functions  | AWS Lambda   | Cloud Functions  |   |
-| **Object Storage** | Azure Blob Storage  | AWS Simple Storage Service (S3)   |  Cloud Storage |   |
-| **File Storage** | Azure Files  |Amazon Elastic File System (EFS)   | Google Cloud File Store  |   |
-| **Database Storage** | Azure Table Storage  | Amazon DynamoDB   |  Google BigTable |   |
-| **Virtual Network** | Azure Virtual Network  | Amazon Virtual Private Cloud (VPC)   |  Virtual Private Cloud |   |
-| **DNS Service** | Azure DNS  | Amazon Route 53   |   Google Cloud DNS|   |
+| **Container Services** | Azure Kubernetes Service (AKS) | Amazon Elastic Kubernetes Service (EKS)   | Google Kubernets Engine  |Container Services for kuberneet Kubernets (ACK)   |
+| **Serverless Computing** | Azure Functions  | AWS Lambda   | Cloud Functions  |  Function Compute 2.0 |
+| **Object Storage** | Azure Blob Storage  | AWS Simple Storage Service (S3)   |  Cloud Storage | Object Storage Services  |
+| **File Storage** | Azure Files  |Amazon Elastic File System (EFS)   | Google Cloud File Store  | Apsara File Storage NAS  |
+| **Database Storage** | Azure Table Storage  | Amazon DynamoDB   |  Google BigTable |Cloud Table Store   |
+| **Virtual Network** | Azure Virtual Network  | Amazon Virtual Private Cloud (VPC)   |  Virtual Private Cloud |Virtual Private Cloud   |
+| **DNS Service** | Azure DNS  | Amazon Route 53   |   Google Cloud DNS| Cloud DNS Private zone  |
 
 
 
