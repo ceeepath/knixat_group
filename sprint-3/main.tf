@@ -13,70 +13,64 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = [each.value]
 }
 
-resource "azurerm_network_security_group" "nsg1" {
-  name                = "web-nsg"
+resource "azurerm_network_security_group" "nsg" {
+  for_each            = var.nsg
+  name                = each.value
   location            = data.azurerm_resource_group.rg.location
   resource_group_name = data.azurerm_resource_group.rg.name
-
-  security_rule {
-    name                       = "http-nsr"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "80"
-    source_address_prefix      = "*"
-    destination_address_prefix = "10.0.0.0/24"
-  }
-
- security_rule {
-    name                       = "https-nsr"
-    priority                   = 150
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "443"
-    source_address_prefix      = "*"
-    destination_address_prefix = "10.0.0.0/24"
-  }
-
 }
 
-resource "azurerm_network_security_group" "nsg2" {
-  name                = "app-nsg"
-  location            = data.azurerm_resource_group.rg.location
-  resource_group_name = data.azurerm_resource_group.rg.name
-
-  security_rule {
-    name                       = "tomcat-nsr"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "8080"
-    source_address_prefix      = "10.0.0.0/24"
-    destination_address_prefix = "*"
-  }
-
+resource "azurerm_subnet_network_security_group_association" "assoc" {
+  for_each                  = { for snet in azurerm_subnet.subnet : snet.name => snet }
+  subnet_id                 = each.value.id
+  network_security_group_id = azurerm_network_security_group.nsg[each.key].id
+  depends_on = [azurerm_network_security_group.nsg]
 }
-resource "azurerm_network_security_group" "nsg3" {
-  name                = "db-nsg"
-  location            = data.azurerm_resource_group.rg.location
-  resource_group_name = data.azurerm_resource_group.rg.name
 
-  security_rule {
-    name                       = "db-nsr"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "3306"
-    source_address_prefix      = "10.0.0.0/24"
-    destination_address_prefix = "*"
-  }
+resource "azurerm_network_security_rule" "webnsr" {
+  for_each                    = local.web-nsg-rules
+  name                        = each.value.name
+  priority                    = each.value.priority
+  direction                   = each.value.direction
+  access                      = each.value.access
+  protocol                    = each.value.protocol
+  source_port_range           = each.value.source_port_range
+  destination_port_range      = each.value.destination_port_range
+  source_address_prefix       = each.value.source_address_prefix
+  destination_address_prefix  = each.value.destination_address_prefix
+  resource_group_name         = data.azurerm_resource_group.rg.name
+  network_security_group_name = var.nsg.web-subnet
+  depends_on = [azurerm_network_security_group.nsg]
+}
 
+resource "azurerm_network_security_rule" "appnsr" {
+  for_each                    = local.app-nsg-rules
+  name                        = each.value.name
+  priority                    = each.value.priority
+  direction                   = each.value.direction
+  access                      = each.value.access
+  protocol                    = each.value.protocol
+  source_port_range           = each.value.source_port_range
+  destination_port_range      = each.value.destination_port_range
+  source_address_prefix       = each.value.source_address_prefix
+  destination_address_prefix  = each.value.destination_address_prefix
+  resource_group_name         = data.azurerm_resource_group.rg.name
+  network_security_group_name = var.nsg.app-subnet
+  depends_on = [azurerm_network_security_group.nsg]
+}
+
+resource "azurerm_network_security_rule" "dbnsr" {
+  for_each                    = local.db-nsg-rules
+  name                        = each.value.name
+  priority                    = each.value.priority
+  direction                   = each.value.direction
+  access                      = each.value.access
+  protocol                    = each.value.protocol
+  source_port_range           = each.value.source_port_range
+  destination_port_range      = each.value.destination_port_range
+  source_address_prefix       = each.value.source_address_prefix
+  destination_address_prefix  = each.value.destination_address_prefix
+  resource_group_name         = data.azurerm_resource_group.rg.name
+  network_security_group_name = var.nsg.db-subnet
+  depends_on = [azurerm_network_security_group.nsg]
 }
