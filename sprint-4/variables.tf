@@ -26,3 +26,18 @@ variable "vnet_details" {
   }
 }
 
+# Load balancer variable
+variable "load_balancer_detail" {
+  type = object({
+    name                    = string
+    public_ip               = string
+    frontend_ip_config      = string
+    lb_backend_address_pool = string
+  })
+  default = {
+    name                      = "LoadBalancer"
+    public_ip_name            = "PublicIPForLB"
+    frontend_ip_config_name   = "Frontend IP Configuration"
+    lb_address_pool_name      = "BackEndAddressPool"
+  }
+}

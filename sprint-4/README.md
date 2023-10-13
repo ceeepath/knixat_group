@@ -8,6 +8,8 @@
 
 # Knixat Cloud DevOps - Group Repository
 
+![High availability 3-tier architecture diagram](high-av-3tier-architecture.png)
+
 ---
 
 <p align="left">
