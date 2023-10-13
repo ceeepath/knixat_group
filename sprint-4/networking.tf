@@ -36,3 +36,28 @@ resource "azurerm_network_interface" "main" {
     private_ip_address_allocation = "Dynamic"
   }
 }
+
+
+#NSG
+resource "azurerm_network_security_group" "main" {
+  name                = "subnet-nsg"
+  location            = data.azurerm_resource_group.myrg.location
+  resource_group_name = data.azurerm_resource_group.myrg.name
+
+  security_rule {
+    name                       = "http-port"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "80"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+resource "azurerm_subnet_network_security_group_association" "main" {
+  subnet_id                 = azurerm_subnet.main.id
+  network_security_group_id = azurerm_network_security_group.main.id
+}

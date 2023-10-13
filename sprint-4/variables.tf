@@ -16,28 +16,31 @@ variable "vnet_details" {
       "subnet-address" = ["192.168.0.0/24"]
     }
     nic_datails = {
-      "web-vm-01" = {nic_name = "nic-eastus2-01", zone = "3", user_data = "./scripts/apache.sh"}
-      "web-vm-02" = {nic_name = "nic-eastus2-02", zone = "2", user_data = "./scripts/apache.sh"}
-      "app-vm-01" = {nic_name = "nic-eastus2-03", zone = "3", user_data = "./scripts/empty_script.sh"}
-      "app-vm-02" = {nic_name = "nic-eastus2-04", zone = "2", user_data = "./scripts/empty_script.sh"}
-      "db-vm-01"  = {nic_name = "nic-eastus2-05", zone = "3", user_data = "./scripts/empty_script.sh"}
-      "db-vm-02"  = {nic_name = "nic-eastus2-06", zone = "2", user_data = "./scripts/empty_script.sh"}
+      "web-vm-01" = { nic_name = "nic-eastus2-01", zone = "3", user_data = "./scripts/apache.sh" }
+      "web-vm-02" = { nic_name = "nic-eastus2-02", zone = "2", user_data = "./scripts/apache.sh" }
+      "app-vm-01" = { nic_name = "nic-eastus2-03", zone = "3", user_data = "./scripts/empty_script.sh" }
+      "app-vm-02" = { nic_name = "nic-eastus2-04", zone = "2", user_data = "./scripts/empty_script.sh" }
+      "db-vm-01"  = { nic_name = "nic-eastus2-05", zone = "3", user_data = "./scripts/empty_script.sh" }
+      "db-vm-02"  = { nic_name = "nic-eastus2-06", zone = "2", user_data = "./scripts/empty_script.sh" }
     }
   }
 }
 
 # Load balancer variable
 variable "load_balancer_detail" {
-  type = object({
-    name                    = string
-    public_ip               = string
-    frontend_ip_config      = string
-    lb_backend_address_pool = string
-  })
+  type = map(string)
   default = {
-    name                      = "LoadBalancer"
-    public_ip_name            = "PublicIPForLB"
-    frontend_ip_config_name   = "Frontend IP Configuration"
-    lb_address_pool_name      = "BackEndAddressPool"
+    name                    = "web-server-lb"
+    public_ip_name          = "web-server-lb-pip"
+    frontend_ip_config_name = "web-server-feip"
+    lb_address_pool_name    = "web-server-pool"
+  }
+}
+
+variable "load_balancer_association" {
+  type = map(string)
+  default = {
+    "web-vm-01" = "internal"
+    "web-vm-02" = "internal"
   }
 }
