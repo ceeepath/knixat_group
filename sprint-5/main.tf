@@ -1,9 +1,9 @@
 # Create the web app
 resource "azurerm_linux_web_app" "main" {
-  name                = "group-2-python-app"
-  resource_group_name = data.azurerm_resource_group.my-rg.name
-  location            = data.azurerm_service_plan.main.location
-  service_plan_id     = data.azurerm_service_plan.main.id
+  name                       = "group-2-python-app"
+  resource_group_name        = data.azurerm_resource_group.my-rg.name
+  location                   = data.azurerm_service_plan.main.location
+  service_plan_id            = data.azurerm_service_plan.main.id
   client_certificate_enabled = false
 
   site_config {
@@ -37,6 +37,12 @@ resource "azurerm_linux_web_app_slot" "dev" {
   }
 }
 
-resource "azurerm_web_app_active_slot" "dev" {
-  slot_id = azurerm_linux_web_app_slot.dev.id
+resource "azurerm_app_service_source_control_slot" "main" {
+  slot_id  = azurerm_linux_web_app_slot.dev.id
+  repo_url = var.app_service_scm.repo_url
+  branch   = "dev"
 }
+
+# resource "azurerm_web_app_active_slot" "dev" {
+#   slot_id                  = azurerm_linux_web_app_slot.dev.id
+# }
