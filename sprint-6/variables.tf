@@ -22,3 +22,9 @@ variable "function_app_details" {
   }
 }
 
+
+
+variable "logic_app_http_name" {
+  type = string
+  description = "The ID of the logic app"
+}

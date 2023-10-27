@@ -41,3 +41,10 @@ resource "azurerm_linux_function_app" "functionapp" {
     "FUNCTIONS_WORKER_RUNTIME"    = var.function_app_details["worker_runtime"]
   }
 }
+
+# Logic app
+resource "azurerm_logic_app_workflow" "http" {
+  name                = var.logic_app_http_name
+  location            = data.azurerm_resource_group.main.location
+  resource_group_name = data.azurerm_resource_group.main.name
+}
